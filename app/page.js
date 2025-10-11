@@ -18,7 +18,7 @@ export default function HomePage() {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3333/article?entity=SEWA_APARTMENT")
+    fetch("https://backend.ptdahliaglobalindo.id/article?entity=SEWA_APARTMENT")
       .then((res) => res.json())
       .then((data) => {
         setArticles(data.slice(0, 3)); // Ambil 3 artikel pertama
@@ -96,7 +96,7 @@ export default function HomePage() {
             <div className="bg-white rounded-xl shadow-lg w-full lg:w-[2100px] h-auto lg:h-[500px] overflow-hidden">
               <div className="w-full h-64 lg:h-80 relative">
                 <Image
-                  src={`https://backend.ptdahliaglobalindo.id${articles[0].thumbnail}`}
+                  src={`"https://backend.ptdahliaglobalindo.id/${articles[0].thumbnail}`}
                   alt={articles[0].title}
                   className="w-full h-full object-cover"
                   width={500}
@@ -132,7 +132,7 @@ export default function HomePage() {
                   >
                     <div className="w-full h-64 lg:h-30 relative">
                       <Image
-                        src={`https://backend.ptdahliaglobalindo.id${item.thumbnail}`}
+                        src={`"https://backend.ptdahliaglobalindo.id/${item.thumbnail}`}
                         alt={item.title}
                         className="w-full h-full object-cover"
                         width={500}

@@ -15,7 +15,7 @@ export default function Tracker() {
     if (!viewedPages.includes(pathname)) {
       async function trackView() {
         try {
-          await fetch("http://localhost:3333/website-views", {
+          await fetch("https://backend.ptdahliaglobalindo.id/website-views", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

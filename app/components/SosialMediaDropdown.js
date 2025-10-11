@@ -15,7 +15,9 @@ const SosialMediaDropdown = ({ entity }) => {
   useEffect(() => {
     const fetchAdmins = async () => {
       try {
-        const res = await fetch("http://localhost:3333/whatsapp-admins"); // backend lokal
+        const res = await fetch(
+          "https://backend.ptdahliaglobalindo.id/whatsapp-admins"
+        ); // backend lokal
         const data = await res.json();
         setAdmins(data);
       } catch (err) {
@@ -27,7 +29,7 @@ const SosialMediaDropdown = ({ entity }) => {
 
   const handleWhatsappClick = async (admin) => {
     try {
-      await fetch("http://localhost:3333/whatsapp-clicks", {
+      await fetch("https://backend.ptdahliaglobalindo.id/whatsapp-clicks", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

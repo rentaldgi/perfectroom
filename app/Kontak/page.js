@@ -53,11 +53,14 @@ const Kontak = () => {
     setIsSending(true);
 
     try {
-      const response = await fetch("http://localhost:3333/kontak", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+      const response = await fetch(
+        "https://backend.ptdahliaglobalindo.id/kontak",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(form),
+        }
+      );
 
       const result = await response.json();
 
