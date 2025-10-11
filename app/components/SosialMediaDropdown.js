@@ -12,10 +12,10 @@ const SosialMediaDropdown = ({ entity }) => {
     setActiveDropdown((prev) => (prev === dropdownName ? null : dropdownName));
   };
 
-    useEffect(() => {
+  useEffect(() => {
     const fetchAdmins = async () => {
       try {
-        const res = await fetch("https://backend.ptdahliaglobalindo.id/whatsapp-admins"); // backend lokal
+        const res = await fetch("http://localhost:3333/whatsapp-admins"); // backend lokal
         const data = await res.json();
         setAdmins(data);
       } catch (err) {
@@ -27,7 +27,7 @@ const SosialMediaDropdown = ({ entity }) => {
 
   const handleWhatsappClick = async (admin) => {
     try {
-      await fetch("https://backend.ptdahliaglobalindo.id/whatsapp-clicks", {
+      await fetch("http://localhost:3333/whatsapp-clicks", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -52,18 +52,31 @@ const SosialMediaDropdown = ({ entity }) => {
           className="flex items-center justify-between w-full px-4 py-3 text-green-700 font-semibold"
         >
           <div className="flex items-center gap-2">
-            <Image src="/images/logos_whatsapp-icon.png" alt="WhatsApp Icon" width={20} height={20} />
+            <Image
+              src="/images/logos_whatsapp-icon.png"
+              alt="WhatsApp Icon"
+              width={20}
+              height={20}
+            />
             WhatsApp
           </div>
-          <span className={`transition-transform ${activeDropdown === "whatsapp" ? "rotate-180" : ""}`}>
+          <span
+            className={`transition-transform ${
+              activeDropdown === "whatsapp" ? "rotate-180" : ""
+            }`}
+          >
             &#9650;
           </span>
         </button>
-        <div className={`transition-all duration-300 ease-in-out overflow-hidden ${activeDropdown === "whatsapp" ? "max-h-[500px]" : "max-h-0"}`}>
+        <div
+          className={`transition-all duration-300 ease-in-out overflow-hidden ${
+            activeDropdown === "whatsapp" ? "max-h-[500px]" : "max-h-0"
+          }`}
+        >
           <div className="px-4 pb-4 pt-2 text-black space-y-4 text-sm">
             {admins
-              .filter(admin => admin.entity === entity) // filter per project entity
-              .map(admin => (
+              .filter((admin) => admin.entity === entity) // filter per project entity
+              .map((admin) => (
                 <div key={admin.id}>
                   <div className="font-semibold">{admin.name}</div>
                   <button
@@ -110,7 +123,6 @@ const SosialMediaDropdown = ({ entity }) => {
         >
           <div className="px-4 pb-4 pt-2 text-black space-y-4 text-sm">
             {[
-              
               {
                 area: "Bekasi",
                 users: [
@@ -120,7 +132,6 @@ const SosialMediaDropdown = ({ entity }) => {
                   },
                 ],
               },
-              
             ].map((region, index) => (
               <div key={index}>
                 {index > 0 && <hr className="border-t border-gray-300 my-2" />}
@@ -174,7 +185,6 @@ const SosialMediaDropdown = ({ entity }) => {
         >
           <div className="px-4 pb-4 pt-2 text-black space-y-4 text-sm">
             {[
-              
               {
                 area: "Bekasi",
                 users: [

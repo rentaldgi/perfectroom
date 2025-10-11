@@ -18,7 +18,7 @@ export default function HomePage() {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    fetch("https://backend.ptdahliaglobalindo.id/article?entity=SEWA_APARTMENT")
+    fetch("http://localhost:3333/article?entity=SEWA_APARTMENT")
       .then((res) => res.json())
       .then((data) => {
         setArticles(data.slice(0, 3)); // Ambil 3 artikel pertama
@@ -27,7 +27,7 @@ export default function HomePage() {
 
   return (
     <div className="bg-gray-100">
-      <Navbar />  
+      <Navbar />
 
       {/* Hero Section */}
       <section className="relative min-h-[600px] flex items-center text-white overflow-hidden">
@@ -74,7 +74,13 @@ export default function HomePage() {
               ["icon_lokasi.png", "Lokasi Strategis"],
             ].map(([icon, label], i) => (
               <div key={i} className="flex items-center justify-center gap-2">
-                <Image src={`/images/${icon}`} className="w-10 h-10" alt="icon" width={100} height={100} />
+                <Image
+                  src={`/images/${icon}`}
+                  className="w-10 h-10"
+                  alt="icon"
+                  width={100}
+                  height={100}
+                />
                 <p className="text-sm md:text-base font-medium">{label}</p>
               </div>
             ))}
@@ -167,8 +173,9 @@ export default function HomePage() {
             <p className="text-sm sm:text-base leading-relaxed">
               Perfect Room hadir untuk memenuhi kebutuhan masyarakat modern yang
               mencari hunian nyaman, strategis, dan siap huni tanpa ribet. Kami
-              menyediakan layanan sewa kamar apartemen di Bekasi dengan fasilitas
-              lengkap, lingkungan yang aman, serta harga yang kompetitif.
+              menyediakan layanan sewa kamar apartemen di Bekasi dengan
+              fasilitas lengkap, lingkungan yang aman, serta harga yang
+              kompetitif.
               <br />
               <br />
               Melalui Perfect Room, Anda dapat menikmati proses pemesanan yang
@@ -190,43 +197,44 @@ export default function HomePage() {
         </div>
       </section>
 
-     {/* Kenapa Harus Memilih */}
-<section className="bg-[#C08931] text-black px-4 py-10 md:px-6 lg:px-8">
-  <div className="max-w-6xl mx-auto">
-<h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 leading-snug text-center">
-  Kenapa Harus Memilih Perfect Room?
-</h2>
+      {/* Kenapa Harus Memilih */}
+      <section className="bg-[#C08931] text-black px-4 py-10 md:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 leading-snug text-center">
+            Kenapa Harus Memilih Perfect Room?
+          </h2>
 
-
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      {[
-        ["icon-syarat.png", "Syarat Sewa yang Ringan dan Tidak Ribet"],
-        ["icon-verif.png", "Beragam Tipe Unit Tersedia Sesuai Kebutuhan"],
-        ["icon-kualitas.png", "Privasi Pelanggan Terjamin Aman"],
-        ["icon-terbuka.png", "Bisa Request Unit Sesuai Preferensi"],
-        ["icon-pembayaran.png", "Sewa Mudah Tanpa Deposit"],
-        ["icon-cod.png", "Tersedia Sewa Harian, Mingguan, hingga Bulanan"],
-      ].map(([icon, text], i) => (
-        <div
-          key={i}
-          className="bg-white text-black p-3 rounded shadow flex items-center gap-3 h-[90px] w-full max-w-full sm:max-w-[480px]"
-        >
-          <Image
-            src={`/images/${icon}`}
-            className="w-16 h-16 object-contain"
-            alt="icon"
-            width={100}
-            height={100}
-          />
-          <p className="text-base font-semibold sm:text-lg leading-snug">
-            {text}
-          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              ["icon-syarat.png", "Syarat Sewa yang Ringan dan Tidak Ribet"],
+              ["icon-verif.png", "Beragam Tipe Unit Tersedia Sesuai Kebutuhan"],
+              ["icon-kualitas.png", "Privasi Pelanggan Terjamin Aman"],
+              ["icon-terbuka.png", "Bisa Request Unit Sesuai Preferensi"],
+              ["icon-pembayaran.png", "Sewa Mudah Tanpa Deposit"],
+              [
+                "icon-cod.png",
+                "Tersedia Sewa Harian, Mingguan, hingga Bulanan",
+              ],
+            ].map(([icon, text], i) => (
+              <div
+                key={i}
+                className="bg-white text-black p-3 rounded shadow flex items-center gap-3 h-[90px] w-full max-w-full sm:max-w-[480px]"
+              >
+                <Image
+                  src={`/images/${icon}`}
+                  className="w-16 h-16 object-contain"
+                  alt="icon"
+                  width={100}
+                  height={100}
+                />
+                <p className="text-base font-semibold sm:text-lg leading-snug">
+                  {text}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
-
+      </section>
 
       {/* Komitmen & Showcase */}
       <section
@@ -236,8 +244,8 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-black/60 z-0" />
         <div className="relative z-10 max-w-6xl mx-auto text-center">
           <p className="text-lg sm:text-xl mb-4">
-            Kami berkomitmen untuk menyediakan unit apartemen terbaik bagi setiap
-            penyewa, <br className="hidden sm:block" />
+            Kami berkomitmen untuk menyediakan unit apartemen terbaik bagi
+            setiap penyewa, <br className="hidden sm:block" />
             karena kenyamanan, kepuasan, dan keamanan Anda adalah prioritas
             utama kami.
           </p>

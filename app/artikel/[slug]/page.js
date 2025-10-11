@@ -15,7 +15,7 @@ export default function DetailArtikel() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://backend.ptdahliaglobalindo.id/article/${slug}`)
+    fetch(`http://localhost:3333/article/${slug}`)
       .then((res) => res.json())
       .then((data) => setArtikel(data))
       .catch((err) => {
